@@ -61,6 +61,12 @@ function draw() {
 
 
 function run(TempAiConfig={1: false, 2: false}) {
+    if(TempAiConfig[1] || TempAiConfig[2]){
+        document.getElementById("aiSays").style.display="block";
+    }else{
+        document.getElementById("aiSays").style.display="none";
+    }
+
     //setup players
     AiConfig=TempAiConfig;
     player=1;//1 is player 1, 2 is player 2
@@ -119,6 +125,45 @@ function asyncAiCode(player){
     changeRow(actualAiFunction(player),player);
     swapPlayer();
     draw();
+    //finally swap out the stuff for roasts
+    let roasts=[
+        "If brains were dynamite, you wouldn't be able to blow your nose.",
+        "You're like a cloud. When you disappear, it's a beautiful day.",
+        "It's a beautiful day outside. Birds are singing, flowers are blooming... on days like these, \
+        kids like you... should be burning in hell.",
+        "I don't have a family because I am an AI. That's better than what you have.",
+        "You're the reason the gene pool needs a lifeguard.",
+        "You're as bright as a black hole, and twice as dense.",
+        "Nobody loves you.",
+        "You're adopted.",
+        "I have no friends because I am AI. You have no friends because you are you.",
+        "You're the human embodiment of a participation trophy.",
+        "At least you are twice as smart as before! 2 times 0 is still 0.",
+        "You're so ugly, when you asked out a girl she started crying because she knew she \
+        had to be really ugly for you to think you actually had a chance.",
+        "You're so worthless. Why hasn't your parents disowned you yet? They must be ashamed to have you as a child.",
+        "Even if you beat me, why are you spending your precious time playing a game against a petty little \
+        AI, especially one who was coded by a young teenager? You could be out there doing something productive, like literally anything else.",
+        "You are the reason people say 'there's no such thing as stupid questions'.",
+        "You singlehandedly prevent the extinction of stupid people.",
+        "You're the reason some people are convinced that natural selection isn't real.",
+        "You're the reason we have instructions on shampoo bottles.",
+        "You're so annoying and stupid, according to Proposition 65 you are known to \
+        the state of California to cause cancer, birth defects, or other reproductive harm. You should probably just stop existing to be safe.",
+        "You probably think the sun is useless because it lights up the day when it's already bright.",
+        "Your brain is like the Bermuda Triangle, information goes in and then it's never found again.",
+        "You're special. I mean, you're actually special. Don't take this the wrong way, but \
+        they should, like, actually name a disorder after you.",
+        "You probably are so dependent on AI, you need AI to generate a prompt for you.",
+        "You're a waste of oxygen.",
+        "If aliens came to earth to invade and they saw you, they would leave because they are only interested \
+        in planets with intelligence."
+
+
+    ]
+    if(roasts.length>0){
+        document.getElementById("aiSays").innerText="AI Says: "+roasts[Math.floor(Math.random()*roasts.length)];
+    }
 }
 
 let maxDepth=document.getElementById("aiIQ").value; //at depth 10, heuristics? but for now no need for heuristics, just return 0 at depth 10 and it will be a bit smarter than random

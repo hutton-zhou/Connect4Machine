@@ -20,3 +20,13 @@ button{
 p{
     margin:5px;
 }
+#sidebar{
+    width:300px;
+    padding:10px;
+}
+#aiSays{
+    width: 100%;
+    white-space:normal;
+    overflow-wrap:normal;
+
+}
