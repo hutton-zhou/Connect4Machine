@@ -60,7 +60,7 @@ function draw() {
 }
 
 
-function run(TempAiConfig={1: false, 2: false}) {
+function run(TempAiConfig={1: false, 2: true}) {
     if(TempAiConfig[1] || TempAiConfig[2]){
         document.getElementById("aiSays").style.display="block";
     }else{
